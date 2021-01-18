@@ -7,15 +7,15 @@
             $this->conn = new PDO("mysql:host=localhost;dbname=db_gie","mmcs","");
         }
 
-        private function setParams($comando,$params){
+        private function setParams($stmt,$params){
             foreach ($params as $key => $value) {
-                $comando->bindParam($key,$value);
+                $stmt->bindParam($key,$value);
             }
         }
 
         public function query($comando,$params = []){
             $stmt = $this->conn->prepare($comando);
-            $this->setParams($comando,$params);
+            $this->setParams($stmt,$params);
             $stmt->execute();
             return $stmt;
         }
