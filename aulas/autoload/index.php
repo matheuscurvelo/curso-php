@@ -18,7 +18,7 @@
         3=>5
     ]);*/
 
-    //Delete
+    //Delete - Retorna o numero de linhas afetadas
     echo $obj->delete("DELETE FROM tb_usuarios WHERE idusuario= ?",[
         1=>6
     ]);
